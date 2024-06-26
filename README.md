@@ -6,11 +6,11 @@ test
 ```
 ## maven
 ```
-mvn clean verify sonar:sonar -Dsonar.projectKey=test -Dsonar.projectName='test' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_b23983382be5cbdc2f376768490d21b404158fd3
+mvn clean verify sonar:sonar -Dsonar.projectKey=test -Dsonar.projectName='test' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_f55ba45dd77c7b7785478b6f8e9a836c4c3aa070
 ```
 ## gradle
 ```
-gradle test jacocoTestReport sonar -Dsonar.gradle.skipCompile=true -Dsonar.projectKey=test -Dsonar.projectName='test' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_b23983382be5cbdc2f376768490d21b404158fd3
+gradle test jacocoTestReport sonar -Dsonar.gradle.skipCompile=true -Dsonar.projectKey=test -Dsonar.projectName='test' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_f55ba45dd77c7b7785478b6f8e9a836c4c3aa070
 ```
 # Updating sonar
 ## remove init.sql
@@ -22,6 +22,10 @@ git push origin --force --all
 ```
 ```
 git push origin --force --tags
+```
+## update init.sql
+```
+PGPASSWORD=sonar pg_dump -h localhost -p 6666 -U sonar -d sonar -f init.sql
 ```
 
 
